@@ -48,7 +48,7 @@
 	editor = vim
 	whitespace = trailing-space,space-before-tab
 [alias]
-	logp = log --pretty=oneline --graph
+	logp = log --pretty=oneline --graph --decorate=full
 	logt = log --pretty=oneline --graph --topo-order
 	logd = log --pretty=oneline --graph --date-order
 	loga = log --oneline --decorate=full
