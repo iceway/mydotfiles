@@ -10,6 +10,7 @@
 	showbranch = auto
 	status = auto
 	ui = auto
+	decorate = auto
 [color "branch"]
 	current = yellow reverse
 	local = green
@@ -37,6 +38,12 @@
 	header = normal
 	untracked = cyan
 	nobranch = red bold
+[color "decorate"]
+	branch = green
+	remoteBranch = red
+	tag = magenta reverse
+	stash = magenta
+	HEAD = cyan
 [core]
 	editor = vim
 	whitespace = trailing-space,space-before-tab
