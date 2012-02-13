@@ -1,0 +1,8 @@
+mydotfiles
+
+record contents of some config files in my home directory, like as ".gitconfig",
+".bashrc", ".vimrc", etc.
+
+* gitconfig
+global config file for git, copy to home directory "~" and rename to ".gitconfig",
+edit to change your name and email address.
