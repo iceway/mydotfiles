@@ -6,3 +6,7 @@ record contents of some config files in my home directory, like as ".gitconfig",
 * gitconfig
 global config file for git, copy to home directory "~" and rename to ".gitconfig",
 edit to change your name and email address.
+
+* vimrc
+global config file for vim, copy to home directory "~" and rename to ".vimrc",
+please don't forget to backup your origin vimrc file before rename.
