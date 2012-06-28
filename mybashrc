@@ -1,0 +1,84 @@
+#some color define
+BLACK='\[\e[30;1m\]'
+RED='\[\e[31;1m\]'
+GREEN='\[\e[32;1m\]'
+YELLOW='\[\e[33;1m\]'
+BLUE='\[\e[34;1m\]'
+MAGENTA='\[\e[35;1m\]'
+CYAN='\[\e[36;1m\]'
+WHITE='\[\e[37;1m\]'
+NORMAL='\[\e[0m\]'
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+xterm)
+    if [ "x$UID" != "x0" ]; then
+        PS1="${GREEN}[${CYAN}\u${YELLOW}@${GREEN}\h ${YELLOW}\W${GREEN}]\$ ${NORMAL}"
+    else
+        PS1="${GREEN}[${RED}\u${NORMAL}@\h ${YELLOW}\W${GREEN}]\$ ${NORMAL}"
+    fi
+    ;;
+*)
+    PS1='[\u@\H \W]\$ '
+    ;;
+esac
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
+
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -a'
+alias l='ls -CF'
+alias vi=vim
+alias rm='rm -i '
+alias ..='cd ..'
+alias ...='cd ../..'
+alias grep='grep --color '
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# display man infor colorful
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+#undefine color
+unset BLACK
+unset RED
+unset GREEN
+unset YELLOW
+unset BLUE
+unset MAGENTA
+unset CYAN
+unset WHITE
+unset NORMAL
