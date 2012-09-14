@@ -39,23 +39,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='ls --color=auto --format=vertical'
-    alias vdir='ls --color=auto --format=long'
-fi
-
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -a'
-alias l='ls -CF'
-alias vi=vim
-alias rm='rm -i '
-alias ..='cd ..'
-alias ...='cd ../..'
-alias grep='grep --color '
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
