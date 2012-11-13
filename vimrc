@@ -26,6 +26,10 @@ set pastetoggle=<F3>    " shortcut key for paste
 set bg=dark             " highlight display
 "set cursorline         " highlight the line that cursor in
 
+" Color
+colorscheme desert
+set t_Co=256
+
 "***** set status bar of vim
 "set statusline=%F%1*%m%*%r%h%w\ %=\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%2*%03.3b%*]\ [HEX=\%2*%02.2B%*]\ [POS=%1*%l,%v%*][%p%%]\ [LINES\ COUNT=%L]
 set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
@@ -138,3 +142,11 @@ map <F2> <Esc>:TlistToggle<CR>
 " Configure for ctags
 set tags=tags;
 set autochdir
+
+set textwidth=0		" Don't wrap words by default
+
+
+set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
+hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
+set laststatus=2        " set the status line position, at the penultimate of vim window
