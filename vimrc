@@ -7,8 +7,8 @@ set backspace=indent,eol,start	" more powerful backspacing
 
 set textwidth=0		" Don't wrap words by default
 set nobackup		" Don't keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more than
-			" 50 lines of registers
+set viminfo='20,\"500	" read/write a .viminfo file, don't store more than
+			" 500 lines of registers
 set history=50		" keep 50 lines of command line history
 "set ruler		" show the cursor position all the time
 "set number		" show line number
@@ -25,10 +25,6 @@ set pastetoggle=<F3>    " shortcut key for paste
 "set shiftwidth=4        " set 4 spaces while indent
 set bg=dark             " highlight display
 "set cursorline         " highlight the line that cursor in
-
-" Color
-colorscheme desert
-set t_Co=256
 
 "***** set status bar of vim
 "set statusline=%F%1*%m%*%r%h%w\ %=\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%2*%03.3b%*]\ [HEX=\%2*%02.2B%*]\ [POS=%1*%l,%v%*][%p%%]\ [LINES\ COUNT=%L]
@@ -145,6 +141,10 @@ set autochdir
 
 set textwidth=0		" Don't wrap words by default
 
+
+" Color
+colorscheme desert
+set t_Co=256
 
 set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
 hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
