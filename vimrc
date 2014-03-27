@@ -1,3 +1,4 @@
+
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -94,3 +95,33 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+""" Below contents are added by Iceway
+set nobackup		" don't bakcup by force
+set textwidth=0		" don't warp words by force
+set pastetoggle=<F3>	" shortcut for paste
+"set expandtab		" replace tab to space
+"set tabstop=4		" one tab display as 4 space
+"set softtabstop=4	" 4 spaces replace 1 tab
+"set shiftwidth=4	" 4 spaces while indent
+"set number		" show line number
+"set autowrite		" Automatically save before commands like :next and :make
+if &t_Co > 2 || has("gui_running")
+  set bg=dark		" highlight display
+  "set cursorline	" highlight the line where cursor in
+  colorscheme desert
+  set t_Co=256
+
+  set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
+  hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+  hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
+  set laststatus=2	" status line position
+endif
+
+" Tagelist config
+let Tlist_Exit_OnlyWindow = 1	" exit vim if taglist is the only window
+map <F2> <Esc>:TlistToggle<CR>
+
+" ctags config
+set tag=tags;
+set autochdir
