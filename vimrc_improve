@@ -53,7 +53,7 @@ autocmd! bufwritepost .vimrc source %
 """"""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
 
-" Vundle setting {{{
+""" Vundle setting {{{
 filetype off
 
 " refer to http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
@@ -71,8 +71,39 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" set Bundles
-Bundle 'gmarik/vundle'
+" Bundles {{{
+  Bundle 'gmarik/vundle'
+  " color scheme
+  Bundle 'altercation/vim-colors-solarized'
+  " vim-colors-solarized {{{
+    set background=dark
+    colorscheme solarized
+  " }}}
+  " coding
+  "Bundle 'a.vim'
+  "Bundle 'c.vim'
+  Bundle 'taglist.vim'
+  " taglist {{{
+    map <F2> :silent! Tlist<CR>
+    let Tlist_Ctags_Cmd='ctags'
+    let Tlist_Exit_OnlyWindow=1
+  " }}}
+  "Bundle 'Valloric/YouCompleteMe'
+  "Bundle 'Valloric/ListToggle'
+  "Bundle 'scrooloose/syntastic'
+  " Others
+  Bundle 'EasyMotion'
+  Bundle 'bling/vim-airline'
+  " vim-airline {{{
+    set noshowmode
+    set laststatus=2
+    let g:airline_theme='powerlineish'
+    let g:airline_powerline_fonts=1    
+    let g:airline_detect_whitespace = 1
+    let g:airline#extensions#hunks#non_zero_only = 1
+  " }}}
+  "Bundle 'vimtips.zip'
+" }}}
 
 " install Bundles automatically
 if iCanHazVundle == 0
