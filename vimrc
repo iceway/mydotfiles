@@ -108,6 +108,7 @@ set pastetoggle=<F3>	" shortcut for paste
 "set autowrite		" Automatically save before commands like :next and :make
 if &t_Co > 2 || has("gui_running")
   set bg=dark		" highlight display
+  syntax reset		" reenable 'syntax on'
   "set cursorline	" highlight the line where cursor in
   colorscheme desert
   set t_Co=256
