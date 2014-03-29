@@ -15,10 +15,12 @@ NORMAL='\[\e[0m\]'
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 
+# change terminal type to support 256 colors
+[ "x$TERM" = "xxterm" -a -e /usr/share/terminfo/x/xterm-256color ] && TERM='xterm-256color'
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm)
+xterm*)
     if [ "x$UID" != "x0" ]; then
         PS1="${GREEN}[${CYAN}\u${YELLOW}@${GREEN}\h ${YELLOW}\W${GREEN}]\$ ${NORMAL}"
     else
