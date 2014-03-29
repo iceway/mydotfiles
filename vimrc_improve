@@ -1,7 +1,57 @@
 " VIM setting (for terminal)
 " Iceway Zhang
 
+""" VIM featrues settings
 set nocompatible		" be improved
+
+set ruler
+set number
+"set relativenumber number
+set hlsearch
+set incsearch
+set cursorline
+"set nowrap
+"set list
+set scrolloff=3
+set showmode
+set showcmd
+set nobackup
+set textwidth=0
+set history=500
+
+"set shiftwidth=4
+"set tabstop=4
+"set expandtab
+"set smarttab
+
+set backspace=indent,eol,start
+set pastetoggle=<F3>
+"set encoding=utf-8
+
+filetype plugin indent on
+
+if &t_Co > 2
+  syntax on
+  set t_Co=256
+endif
+"set laststatus=2
+"set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
+"hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+"hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
+"set background=dark
+"set colorscheme=desert256
+
+"map <C-H> <C-W>h
+"map <C-J> <C-W>j
+"map <C-K> <C-W>k
+"map <C-L> <C-W>l
+cmap w!! w !sudo tee >/dev/null %
+
+autocmd! bufwritepost .vimrc source %
+
+""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 
 " Vundle setting {{{
 filetype off
