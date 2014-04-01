@@ -1,7 +1,7 @@
 " VIM setting (for terminal)
 " Iceway Zhang
 
-""" VIM featrues settings
+""" ### VIM featrues settings {{{
 set nocompatible		" be improved
 
 set ruler
@@ -48,12 +48,13 @@ endif
 cmap w!! w !sudo tee >/dev/null %
 
 autocmd! bufwritepost .vimrc source %
+" ### }}}
 
 """"""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
 
-""" Vundle setting {{{
+""" ### Vundle setting {{{
 filetype off
 
 " refer to http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
@@ -75,7 +76,7 @@ call vundle#rc()
   Bundle 'gmarik/vundle'
   " color scheme
   Bundle 'altercation/vim-colors-solarized'
-  " vim-colors-solarized {{{
+  " ::: vim-colors-solarized {{{
     set background=dark
     colorscheme solarized
   " }}}
@@ -83,7 +84,7 @@ call vundle#rc()
   "Bundle 'a.vim'
   "Bundle 'c.vim'
   Bundle 'taglist.vim'
-  " taglist {{{
+  " ::: taglist {{{
     map <F2> :silent! Tlist<CR>
     let Tlist_Ctags_Cmd='ctags'
     let Tlist_Exit_OnlyWindow=1
@@ -94,7 +95,7 @@ call vundle#rc()
   " Others
   Bundle 'EasyMotion'
   Bundle 'bling/vim-airline'
-  " vim-airline {{{
+  " ::: vim-airline {{{
     set noshowmode
     set laststatus=2
     let g:airline_theme='powerlineish'
@@ -103,6 +104,15 @@ call vundle#rc()
     let g:airline#extensions#hunks#non_zero_only = 1
   " }}}
   "Bundle 'vimtips.zip'
+  Bundle 'ctrlp.vim'
+  " ::: ctrlp {{{
+    let g:ctrlp_follow_symlinks=1
+    let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+  " }}}
+  "Bundle 'The-NERD-tree'
+  "Bundle 'The-NERD-Commenter'
+  Bundle 'terryma/vim-multiple-cursors'
+  Bundle 'tpope/vim-fugitive'
 " }}}
 
 " install Bundles automatically
@@ -112,4 +122,4 @@ if iCanHazVundle == 0
   :BundleInstall
 endif
 filetype plugin indent on
-"}}}
+" ### }}}
