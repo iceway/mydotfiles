@@ -98,7 +98,12 @@ call vundle#rc()
     " }}}
     "Bundle 'Valloric/YouCompleteMe'
     "Bundle 'Valloric/ListToggle'
-    "Bundle 'scrooloose/syntastic'
+    Bundle 'scrooloose/syntastic'
+    " ::: synstastic {{{
+        let g:syntastic_check_on_open=0
+        let g:syntastic_check_on_wq=1
+        let g:syntastic_auto_loc_list=1
+    " }}}
     " Others
     Bundle 'EasyMotion'
     Bundle 'bling/vim-airline'
