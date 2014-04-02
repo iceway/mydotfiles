@@ -6,7 +6,7 @@ set nocompatible		" be improved
 
 set ruler
 set number
-"set relativenumber number
+"set relativenumber
 set hlsearch
 set incsearch
 set cursorline
@@ -27,6 +27,7 @@ set history=500
 set backspace=indent,eol,start
 set pastetoggle=<F3>
 "set encoding=utf-8
+set viminfo='100,f1,<500
 
 filetype plugin indent on
 
@@ -47,7 +48,12 @@ endif
 "map <C-L> <C-W>l
 cmap w!! w !sudo tee >/dev/null %
 
-autocmd! bufwritepost .vimrc source %
+autocmd! BufWritePost ~/.vimrc so ~/.vimrc
+autocmd BufReadPost *
+	\ if line("`\"") > 1 && line("`\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+runtime! ftplugin/man.vim
 " ### }}}
 
 """"""""""""""""""""""""""""""
