@@ -1,5 +1,6 @@
 " VIM setting (for terminal)
 " Iceway Zhang
+" vim:set shiftwidth=4 tabstop=4 softtabstop=4 expandtab: "
 
 """ ### VIM featrues settings {{{
 set nocompatible		" be improved
@@ -32,8 +33,8 @@ set viminfo='100,f1,<500
 filetype plugin indent on
 
 if &t_Co > 2
-  syntax on
-  set t_Co=256
+	syntax on
+	set t_Co=256
 endif
 "set laststatus=2
 "set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
@@ -67,11 +68,11 @@ filetype off
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
-  echo "Installing Vundle..."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle/
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+	echo "Installing Vundle..."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle/
+	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	let iCanHazVundle=0
 endif
 
 " apend vundle path to runtimepath
@@ -79,53 +80,53 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Bundles {{{
-  Bundle 'gmarik/vundle'
-  " color scheme
-  Bundle 'altercation/vim-colors-solarized'
-  " ::: vim-colors-solarized {{{
-    set background=dark
-    colorscheme solarized
-  " }}}
-  " coding
-  "Bundle 'a.vim'
-  "Bundle 'c.vim'
-  Bundle 'taglist.vim'
-  " ::: taglist {{{
-    map <F2> :silent! Tlist<CR>
-    let Tlist_Ctags_Cmd='ctags'
-    let Tlist_Exit_OnlyWindow=1
-  " }}}
-  "Bundle 'Valloric/YouCompleteMe'
-  "Bundle 'Valloric/ListToggle'
-  "Bundle 'scrooloose/syntastic'
-  " Others
-  Bundle 'EasyMotion'
-  Bundle 'bling/vim-airline'
-  " ::: vim-airline {{{
-    set noshowmode
-    set laststatus=2
-    let g:airline_theme='powerlineish'
-    let g:airline_powerline_fonts=1    
-    let g:airline_detect_whitespace = 1
-    let g:airline#extensions#hunks#non_zero_only = 1
-  " }}}
-  "Bundle 'vimtips.zip'
-  Bundle 'ctrlp.vim'
-  " ::: ctrlp {{{
-    let g:ctrlp_follow_symlinks=1
-    let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-  " }}}
-  "Bundle 'The-NERD-tree'
-  "Bundle 'The-NERD-Commenter'
-  Bundle 'terryma/vim-multiple-cursors'
-  Bundle 'tpope/vim-fugitive'
+	Bundle 'gmarik/vundle'
+	" color scheme
+	Bundle 'altercation/vim-colors-solarized'
+	" ::: vim-colors-solarized {{{
+		set background=dark
+		colorscheme solarized
+	" }}}
+	" coding
+	"Bundle 'a.vim'
+	"Bundle 'c.vim'
+	Bundle 'taglist.vim'
+	" ::: taglist {{{
+		map <F2> :silent! Tlist<CR>
+		let Tlist_Ctags_Cmd='ctags'
+		let Tlist_Exit_OnlyWindow=1
+	" }}}
+	"Bundle 'Valloric/YouCompleteMe'
+	"Bundle 'Valloric/ListToggle'
+	"Bundle 'scrooloose/syntastic'
+	" Others
+	Bundle 'EasyMotion'
+	Bundle 'bling/vim-airline'
+	" ::: vim-airline {{{
+		set noshowmode
+		set laststatus=2
+		let g:airline_theme='powerlineish'
+		let g:airline_powerline_fonts=1
+		let g:airline_detect_whitespace = 1
+		let g:airline#extensions#hunks#non_zero_only = 1
+	" }}}
+	"Bundle 'vimtips.zip'
+	Bundle 'ctrlp.vim'
+	" ::: ctrlp {{{
+		let g:ctrlp_follow_symlinks=1
+		let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+	" }}}
+	"Bundle 'The-NERD-tree'
+	"Bundle 'The-NERD-Commenter'
+	Bundle 'terryma/vim-multiple-cursors'
+	Bundle 'tpope/vim-fugitive'
 " }}}
 
 " install Bundles automatically
 if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
+	echo "Installing Bundles, please ignore key map error messages"
+	echo ""
+	:BundleInstall
 endif
 filetype plugin indent on
 " ### }}}
