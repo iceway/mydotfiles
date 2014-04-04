@@ -85,7 +85,9 @@ call vundle#rc()
     Bundle 'altercation/vim-colors-solarized'
     " ::: vim-colors-solarized {{{
         set background=dark
+        "let g:solarized_termcolors=256
         colorscheme solarized
+        "call togglebg#map("<F5>")
     " }}}
     " coding
     "Bundle 'a.vim'
