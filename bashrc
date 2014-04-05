@@ -1,12 +1,12 @@
 #some color define
-BLACK='\[\e[30;1m\]'
-RED='\[\e[31;1m\]'
-GREEN='\[\e[32;1m\]'
-YELLOW='\[\e[33;1m\]'
-BLUE='\[\e[34;1m\]'
-MAGENTA='\[\e[35;1m\]'
-CYAN='\[\e[36;1m\]'
-WHITE='\[\e[37;1m\]'
+BLACK='\[\e[30m\]'
+RED='\[\e[31m\]'
+GREEN='\[\e[32m\]'
+YELLOW='\[\e[33m\]'
+BLUE='\[\e[34m\]'
+MAGENTA='\[\e[35m\]'
+CYAN='\[\e[36m\]'
+WHITE='\[\e[37m\]'
 NORMAL='\[\e[0m\]'
 
 # If not running interactively, don't do anything
