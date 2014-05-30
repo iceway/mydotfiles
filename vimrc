@@ -106,6 +106,10 @@ call vundle#rc()
         let g:syntastic_check_on_wq=1
         let g:syntastic_auto_loc_list=1
     " }}}
+    Bundle 'plasticboy/vim-markdown'
+    " ::: vim-markdown {{{
+        let g:vim_markdown_folding_disabled=1
+    " }}}
     " Others
     Bundle 'EasyMotion'
     Bundle 'bling/vim-airline'
