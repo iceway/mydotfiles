@@ -29,4 +29,7 @@ install_bin_dir "gitconfig"
 echo "please update name and email in ${home}/.gitconfig munally."
 
 # vimrc
-Install_bin_dir "vimrc"
+install_bin_dir "vimrc"
+
+# tmux
+install_bin_dir "tmux.conf"
