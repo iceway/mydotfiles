@@ -59,3 +59,5 @@
 [merge]
 	log = true
 	tool = vimdiff
+#[http]
+#	proxy = socks5://127.0.0.1:1080
