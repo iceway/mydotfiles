@@ -100,9 +100,6 @@ call vundle#rc()
         " set background=dark
         " colorscheme 'Tomorrow-Night-Eighties'
     " }}}
-    " coding
-    "Bundle 'a.vim'
-    "Bundle 'c.vim'
     Bundle 'taglist.vim'
     " ::: taglist {{{
         map <F2> :silent! Tlist<CR>
@@ -136,11 +133,6 @@ call vundle#rc()
        let g:syntastic_check_on_wq=1
        let g:syntastic_auto_loc_list=1
     " }}}
-    Bundle 'plasticboy/vim-markdown'
-    " ::: vim-markdown {{{
-        let g:vim_markdown_folding_disabled=1
-    " }}}
-    " Others
     Bundle 'EasyMotion'
     Bundle 'vim-airline/vim-airline'
     " ::: vim-airline {{{
@@ -164,6 +156,7 @@ call vundle#rc()
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tpope/vim-fugitive'
     Bundle 'lilydjwg/colorizer'
+    Bundle 'sheerun/vim-polyglot'
 " }}}
 
 " install Bundles automatically
