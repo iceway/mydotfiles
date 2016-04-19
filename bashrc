@@ -62,3 +62,6 @@ unset MAGENTA
 unset CYAN
 unset WHITE
 unset NORMAL
+
+# ls colors
+[ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
