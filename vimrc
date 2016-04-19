@@ -38,7 +38,7 @@ filetype plugin indent on		" 启用indent（自动对齐）插件
 
 if &t_Co > 2
     syntax on				" 开启语法高亮
-    set t_Co=256
+    set t_Co=256			" 终端支持256色
 endif
 
 "set laststatus=2
@@ -88,12 +88,17 @@ call vundle#rc()
 " Bundles {{{
     Bundle 'gmarik/vundle'
     " color scheme
-    Bundle 'altercation/vim-colors-solarized'		" solarized 配色方案
+    Bundle 'altercation/vim-colors-solarized'
     " ::: vim-colors-solarized {{{
         set background=dark
         let g:solarized_termcolors=256
         colorscheme solarized
         "call togglebg#map("<F5>")
+    " }}}
+    Bundle 'chriskempson/vim-tomorrow-theme'
+    " ::: vim-tomorrow-theme {{{
+        " set background=dark
+        " colorscheme 'Tomorrow-Night-Eighties'
     " }}}
     " coding
     "Bundle 'a.vim'
@@ -104,7 +109,7 @@ call vundle#rc()
         let Tlist_Ctags_Cmd='ctags'
         let Tlist_Exit_OnlyWindow=1
     " }}}
-"    Bundle 'Valloric/YouCompleteMe'			" YCM自动补全插件
+"    Bundle 'Valloric/YouCompleteMe'
 "    " ::: YouCompleteMe {{{
 "        let g:ycm_register_as_syntastic_checker = 1 "default 1
 "        let g:Show_diagnostics_ui = 1 "default 1
