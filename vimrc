@@ -157,6 +157,10 @@ call vundle#rc()
     Bundle 'tpope/vim-fugitive'
     Bundle 'lilydjwg/colorizer'
     Bundle 'sheerun/vim-polyglot'
+    "Bundle 'SirVer/ultisnips'
+    "Bundle 'honza/vim-snippets'
+    "Bundle 'scrooloose/nerdtree'
+    "Bundle 'tpope/vim-eunuch'
 " }}}
 
 " install Bundles automatically
