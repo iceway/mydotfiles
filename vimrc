@@ -132,6 +132,8 @@ call vundle#rc()
     "Bundle 'Valloric/ListToggle'
     Bundle 'scrooloose/syntastic'
     " ::: synstastic {{{
+       let g:syntastic_error_symbol='✗'
+       let g:syntastic_warning_symbol='⚠'
        let g:syntastic_check_on_open=0
        let g:syntastic_check_on_wq=1
        let g:syntastic_auto_loc_list=1
