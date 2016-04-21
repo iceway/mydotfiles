@@ -155,6 +155,7 @@ call vundle#rc()
     Bundle 'honza/vim-snippets'
     "Bundle 'scrooloose/nerdtree'
     "Bundle 'tpope/vim-eunuch'
+    Bundle 'rdnetto/YCM-Generator'
 " }}}
 
 " install Bundles automatically
