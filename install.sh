@@ -33,6 +33,3 @@ install_bin_dir "vimrc"
 
 # tmux
 install_bin_dir "tmux.conf"
-
-# dir_colors
-install_bin_dir "dir_colors"
