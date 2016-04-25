@@ -56,19 +56,6 @@ cp gitconfig ~/.gitconfig
 
 > 本配置文件没有指定username和email，安装后要手动编辑`~/.gitconfig`文件填入正确的uername和email。
 
-### dir_colors
-
-ls命令显示色彩的配置，通过下面命令手动安装：
-
-```bash
-cp dir_colors ~/.dir_colors
-```
-
-> 安装后，需要在shell的默认配置文件（~/.bashrc或者~/.zshrc）中加入下面的命令生效:
-
-```bash
-[ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
-```
 
 ## 参考
 
