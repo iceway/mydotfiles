@@ -63,106 +63,91 @@ autocmd BufReadPost *
 runtime! ftplugin/man.vim
 " ### }}} VIM 特性配置结束
 
-""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""
-
-""" ### Vundle setting {{{
-filetype off				" 关闭自动检测文件类型
+" ############################################################################ "
+" ###############     VIM插件：使用Vundle.vim 管理插件     ################### "
+" ############################################################################ "
+" {{{ Vundle Setting
+" Vundle必须：先关闭兼容模式及文件类型检测
+set nocompatible
+filetype off
 
 " refer to http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
     echo "Installing Vundle..."
     echo ""
     silent !mkdir -p ~/.vim/bundle/
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     let iCanHazVundle=0
 endif
 
-" apend vundle path to runtimepath
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" 设置包括vundle和初始化相关的runtime path
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Bundles {{{
-    Bundle 'gmarik/vundle'
-    " color scheme
-    Bundle 'altercation/vim-colors-solarized'
-    " ::: vim-colors-solarized {{{
-        set background=dark
-        let g:solarized_termcolors=256
-        colorscheme solarized
-        "call togglebg#map("<F5>")
-    " }}}
-    Bundle 'chriskempson/vim-tomorrow-theme'
-    " ::: vim-tomorrow-theme {{{
-        " set background=dark
-        " colorscheme 'Tomorrow-Night-Eighties'
-    " }}}
-    Bundle 'taglist.vim'
-    " ::: taglist {{{
-        map <F2> :silent! Tlist<CR>
-        let Tlist_Ctags_Cmd='ctags'
-        let Tlist_Exit_OnlyWindow=1
-    " }}}
-    Bundle 'Valloric/YouCompleteMe'
-    "" ::: YouCompleteMe {{{
-        let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" Vundle必须：让vundle管理插件版本
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+	let g:solarized_termcolors=256
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'taglist.vim'
+	map <F2> :silent! Tlist<CR>
+	let Tlist_Ctags_Cmd='ctags'
+	let Tlist_Exit_OnlyWindow=1
+Plugin 'Valloric/YouCompleteMe'
+	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 	let g:ycm_complete_in_comments = 1
-        let g:ycm_key_invoke_completion = '<C-Space>'
-        nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
-    "" }}}
-    "Bundle 'Valloric/ListToggle'
-    Bundle 'scrooloose/syntastic'
-    " ::: synstastic {{{
-       let g:syntastic_error_symbol='✗'
-       let g:syntastic_warning_symbol='⚠'
-       let g:syntastic_check_on_open=0
-       let g:syntastic_check_on_wq=1
-       let g:syntastic_auto_loc_list=1
-    " }}}
-    Bundle 'EasyMotion'
-    Bundle 'vim-airline/vim-airline'
-    " ::: vim-airline {{{
-         set noshowmode
-	 set laststatus=2
-	 let g:airline_theme='powerlineish'
-	 let g:airline_powerline_fonts = 1
-	 let g:airline_detect_whitespace = 1
-	 let g:airline#extensions#tabline#enabled = 1
-	 let g:airline#extensions#hunks#non_zero_only = 1
-    " }}}
-    Bundle 'vim-airline/vim-airline-themes'
-    "Bundle 'vimtips.zip'
-    Bundle 'ctrlp.vim'
-    " ::: ctrlp {{{
-        let g:ctrlp_follow_symlinks=1
-        let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-    " }}}
-    "Bundle 'The-NERD-tree'
-    "Bundle 'The-NERD-Commenter'
-    Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'lilydjwg/colorizer'
-    Bundle 'sheerun/vim-polyglot'
-    Bundle 'SirVer/ultisnips'
-    " ::: ultisnips {{{
-        let g:UltiSnipsExpandTrigger = "<c-j>"
+	let g:ycm_key_invoke_completion = '<C-Space>'
+	nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
+Plugin 'rdnetto/YCM-Generator'
+"Plugin 'Valloric/ListToggle'
+Plugin 'scrooloose/syntastic'
+	let g:syntastic_error_symbol='✗'
+	let g:syntastic_warning_symbol='⚠'
+	let g:syntastic_check_on_open=0
+	let g:syntastic_check_on_wq=1
+	let g:syntastic_auto_loc_list=1
+Plugin 'EasyMotion'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+	set noshowmode
+	set laststatus=2
+	let g:airline_theme='powerlineish'
+	let g:airline_powerline_fonts = 1
+	let g:airline_detect_whitespace = 1
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#hunks#non_zero_only = 1
+Plugin 'ctrlp.vim'
+	let g:ctrlp_follow_symlinks=1
+	let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+"Plugin 'The-NERD-tree'
+"Plugin 'The-NERD-Commenter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'lilydjwg/colorizer'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'SirVer/ultisnips'
+	let g:UltiSnipsExpandTrigger = "<c-j>"
 	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 	let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-    " }}}
-    Bundle 'honza/vim-snippets'
-    "Bundle 'scrooloose/nerdtree'
-    "Bundle 'tpope/vim-eunuch'
-    Bundle 'rdnetto/YCM-Generator'
-" }}}
+Plugin 'honza/vim-snippets'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'tpope/vim-eunuch'
 
-" install Bundles automatically
+" 安装了Vundle后，首次自动安装插件
 if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
+    echo "Installing plugins, please ignore key map error messages"
     echo ""
-    :BundleInstall
+    :PluginInstall
 endif
+
+" 你的所有插件需要在下面这行之前
+call vundle#end()
+" Vundle必须：加载vim自带和插件相应的语法和文件类型相关脚本
 filetype plugin indent on
-" ### }}}
+" }}} End of Vundle Setting
+
+set background=dark
+colorscheme solarized
