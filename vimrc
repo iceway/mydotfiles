@@ -11,11 +11,12 @@ set number				" 显示行号
 "set relativenumber			" 显示相对（当前光标所在行）行号而不是绝对行号
 set hlsearch				" 高亮搜索结果
 set incsearch				" 输入搜索内容时就同步显示搜索结果
+"set ignorecase				" 搜索时大小写不敏感
 "set nowrap				" 长度超过窗口宽度不要换行显示
 "set list				" 让VIM显示空格、tab、换行等不可见字符
 "set listchars=nbsp:¬,trail:·,tab:»	" 设置VIM把空格、换行、tab显示为什么字符
 set scrolloff=3				" 光标移动到顶部和底部时自动保持3行距离
-"set showmatch				" 显示自动匹配到的对应括号
+set showmatch				" 显示自动匹配到的对应括号
 set showmode				" 让VIM在窗口最低下显示当前模式，如--INSERT--等
 set showcmd				" 在命令模式下输入命令时，同步显示已经键入的命令内容
 set nobackup				" 保存文件时，不要创建备份文件
@@ -34,25 +35,22 @@ set backspace=indent,eol,start		" 退格键（backspace）默认工作vi模式�
 set pastetoggle=<F3>			" 按下F3键可以切换粘贴插入模式[Insert (paste)]和普通插入模式。
 set viminfo='100,f1,<500
 
-"set laststatus=2
-"set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
-"hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
-"hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
-
-"set background=dark			" 设置VIM背景色是深色方案，对应的可以赋值light设置为浅色方案
-"set colorscheme=desert256		" 设置默认的配色方案
-
 "map <C-H> <C-W>h
 "map <C-J> <C-W>j
 "map <C-K> <C-W>k
 "map <C-L> <C-W>l
 cmap w!! w !sudo tee >/dev/null %
 
-autocmd! BufWritePost ~/.vimrc so ~/.vimrc
+" 不重启VIM，让配置文件保存后立即生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" 打开文件后，自动跳转到上一次退出时所在行
 autocmd BufReadPost *
     \ if line("`\"") > 1 && line("`\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+" 启用VIM内置的man page reviewer，可以用命令`:Man XXX`查看手册页
 runtime! ftplugin/man.vim
 " ### }}} VIM 特性配置结束
 
