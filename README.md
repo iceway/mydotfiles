@@ -32,7 +32,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### vimrc
 
-vim的配置文件，通过下面的命令手动安装使用：
+vim的配置文件（针对终端下vim），通过下面的命令手动安装使用：
 
 ```bash
 cp vimrc ~/.vimrc
@@ -40,11 +40,9 @@ cp vimrc ~/.vimrc
 
 > 该配置文件在vim 7.4版本上测试过，某些用到的插件在7.4以下版本上可能无法正常使用。
 
-本配置文件使用[VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)作为插件管理器，手动执行以下命令安装vundle，完成后启动vim，在普通模式下执行命令`:BundleInstall`，自动安装配置中用到的其他插件。
+本配置文件使用[VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)作为插件管理器，使用本配置文件后运行vim，会自动检测Vundle.vim是否已安装，如果没有则安装插件管理器，然后安装所有指定的插件。如果已经安装过Vundle.vim，运行vim后，执行命令`:PluginInstall`安装所有插件，`:PluginUpdate`更新所有插件。
 
-```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
-```
+Vundle.vim下载或更新插件依赖**git**工具，请确认系统上已经安装了git。
 
 ### gitconfig
 
