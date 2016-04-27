@@ -83,6 +83,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 	let g:solarized_termcolors=256
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 Plugin 'taglist.vim'
 	map <F2> :silent! Tlist<CR>
 	let Tlist_Ctags_Cmd='ctags'
@@ -126,6 +128,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'tpope/vim-eunuch'
+Plugin 'guns/xterm-color-table.vim'
 
 " 安装了Vundle后，首次自动安装插件
 if iCanHazVundle == 0
