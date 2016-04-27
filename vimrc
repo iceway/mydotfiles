@@ -34,13 +34,6 @@ set backspace=indent,eol,start		" 退格键（backspace）默认工作vi模式�
 set pastetoggle=<F3>			" 按下F3键可以切换粘贴插入模式[Insert (paste)]和普通插入模式。
 set viminfo='100,f1,<500
 
-filetype plugin indent on		" 启用indent（自动对齐）插件
-
-if &t_Co > 2
-    syntax on				" 开启语法高亮
-    set t_Co=256			" 终端支持256色
-endif
-
 "set laststatus=2
 "set statusline=%2*Filename\:\ %t%*%1*%m%*%2*%r%h%w\ %=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%b]\ [HEX=\%02.2B]\ [POS=%l,%v][%p%%]\ [LINES=%L]\ %*
 "hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
@@ -149,5 +142,9 @@ call vundle#end()
 filetype plugin indent on
 " }}} End of Vundle Setting
 
+" 开启语法高亮显示，终端支持256色。
+syntax on
+set t_Co=256
+" 设置色彩空间为暗色调，使用solarized配色方案
 set background=dark
 colorscheme solarized
