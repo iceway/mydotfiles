@@ -3,10 +3,12 @@
 - solarized: 拷贝自[solarized putty][solarized]暗色方案。
 - gruvbox: 基于[gruvbox][gruvbox]暗色方案编写。
 - tomorrow: 拷贝自[tomorrow][tomorrow]night方案。
+- monokai: 基于[monokai][monokai]配色方案修改。
 
 [solarized]: https://github.com/altercation/solarized/tree/master/putty-colors-solarized
 [gruvbox]: https://github.com/morhetz/gruvbox
 [tomorrow]: https://github.com/chriskempson/tomorrow-theme
+[monokai]: https://www.noobunbox.net/themes-pour-putty/theme-monokai
 
 ## putty配色格式
 
