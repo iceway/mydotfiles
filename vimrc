@@ -129,6 +129,11 @@ Plugin 'honza/vim-snippets'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'tpope/vim-eunuch'
 Plugin 'guns/xterm-color-table.vim'
+Plugin 'Yggdroot/indentLine'
+	let g:indentLine_char='┆'
+	let g:indentLine_enabled = 1
+	let g:indentLine_color_term = 239
+Plugin 'tell-k/vim-autopep8'
 
 " 安装了Vundle后，首次自动安装插件
 if iCanHazVundle == 0
@@ -141,6 +146,7 @@ endif
 call vundle#end()
 " Vundle必须：加载vim自带和插件相应的语法和文件类型相关脚本
 filetype plugin indent on
+autocmd FileType python setlocal et sta sw=4 sts=4
 " }}} End of Vundle Setting
 
 " 开启语法高亮显示，终端支持256色。
