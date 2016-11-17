@@ -65,3 +65,6 @@ unset NORMAL
 
 # ls colors
 [ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
+
+# 把Ctrl和Capslock按键的作用互换 
+setxkbmap -option ctrl:swapcaps 
