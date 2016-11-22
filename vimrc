@@ -46,8 +46,8 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " 打开文件后，自动跳转到上一次退出时所在行
 autocmd BufReadPost *
-    \ if line("`\"") > 1 && line("`\"") <= line("$") |
-    \   exe "normal! g`\"" |
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
     \ endif
 
 " 启用VIM内置的man page reviewer，可以用命令`:Man XXX`查看手册页
