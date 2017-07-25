@@ -20,7 +20,7 @@ export HISTCONTROL=ignoredups
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm*)
+xterm*|*256color)
     if [ "x$UID" != "x0" ]; then
         PS1="${GREEN}[${CYAN}\u${YELLOW}@${GREEN}\h ${YELLOW}\W${GREEN}]\$ ${NORMAL}"
     else
@@ -67,4 +67,4 @@ unset NORMAL
 [ -f ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
 
 # 把Ctrl和Capslock按键的作用互换 
-setxkbmap -option ctrl:swapcaps 
+# setxkbmap -option ctrl:swapcaps
