@@ -84,17 +84,18 @@ Plugin 'altercation/vim-colors-solarized'
 	let g:solarized_termcolors=256
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'tomasr/molokai'
+	let g:rehash256 = 1
 Plugin 'morhetz/gruvbox'
 Plugin 'taglist.vim'
 	map <F2> :silent! Tlist<CR>
 	let Tlist_Ctags_Cmd='ctags'
 	let Tlist_Exit_OnlyWindow=1
-Plugin 'Valloric/YouCompleteMe'
-	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-	let g:ycm_complete_in_comments = 1
-	let g:ycm_key_invoke_completion = '<C-Space>'
-	nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
-Plugin 'rdnetto/YCM-Generator'
+"Plugin 'Valloric/YouCompleteMe'
+"	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"	let g:ycm_complete_in_comments = 1
+"	let g:ycm_key_invoke_completion = '<C-Space>'
+"	nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
+"Plugin 'rdnetto/YCM-Generator'
 "Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/syntastic'
 	let g:syntastic_error_symbol='✗'
@@ -154,4 +155,4 @@ syntax on
 set t_Co=256
 " 设置色彩空间为暗色调，使用solarized配色方案
 set background=dark
-colorscheme solarized
+colorscheme molokai
