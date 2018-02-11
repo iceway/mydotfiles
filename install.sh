@@ -2,34 +2,40 @@
 
 ### install dotfiles on linux
 
-repo=$(pwd)
-home=${HOME}
-
-install_bin_dir()
+# @1: srcfile
+# @2: dstfile
+backup_and_install_file()
 {
-	[ $# -ne 1 ] && return
+	[ $# -ne 2 ] && return
 
-	dest=${home}/.$1
-	src=${repo}/$1
-	if [ -f ${dest} ]; then
-		echo "backup old $1 to ${dest}.bak"
-		mv ${dest} ${dest}.bak
+	[ ! -f "$1" ] && { echo "Do not exist $1!"; return; }
+	[ ! -d "${2%/*}" ] && { echo "Do not exist ${2%/*}!"; return; }
+
+	if [ -f "$2" ]; then
+		echo "backup old $2 to $2.bak"
+		mv "$2" "$2.bak"
 	fi
-	echo "install $1 to ${dest}"
-	ln -sf ${src} ${dest}
+
+	cp "$1" "$2"
 }
 
-echo "install dotfiles..."
-
 # bash
-install_bin_dir "bashrc"
+echo "install .bashrc for bash"
+backup_and_install_file "bash/bashrc" "$HOME/.bashrc"
 
-# gitconfig
-install_bin_dir "gitconfig"
-echo "please update name and email in ${home}/.gitconfig munally."
+# git
+echo "install .gitconfig for git"
+backup_and_install_file "git/gitconfig" "$HOME/.gitconfig"
+echo "please update name and email in $HOME/.gitconfig munally."
 
-# vimrc
-install_bin_dir "vimrc"
+# vim
+echo "install .vimrc for vim"
+backup_and_install_file "vim/vimrc" "$HOME/.vimrc"
+[ ! -d ~/.vim/bundle/Vundle.vim ] && \
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # tmux
-install_bin_dir "tmux.conf"
+echo "install .tmux.conf for tmux"
+backup_and_install_file "tmux/tmux.conf" "$HOME/.tmux.conf"
+[ ! -d ~/.tmux/plugins/tpm ] && \
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
