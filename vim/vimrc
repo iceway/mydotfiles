@@ -95,10 +95,6 @@ Plugin 'vim-airline/vim-airline'
 	let g:airline_detect_whitespace = 1
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#hunks#non_zero_only = 1
-Plugin 'taglist.vim'
-	map <F2> :silent! Tlist<CR>
-	let Tlist_Ctags_Cmd='ctags'
-	let Tlist_Exit_OnlyWindow=1
 Plugin 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = "<c-j>"
 	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
@@ -125,6 +121,11 @@ Plugin 'tenfyzhong/CompleteParameter.vim'
 	"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 	"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 "Plugin 'Valloric/ListToggle'
+Plugin 'majutsushi/tagbar'
+	nmap <F2> :TagbarToggle<CR>
+"Plugin 'ctrlp.vim'
+	"let g:ctrlp_follow_symlinks=1
+	"let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 Plugin 'scrooloose/syntastic'
 	let g:syntastic_error_symbol='✗'
 	let g:syntastic_warning_symbol='⚠'
@@ -132,12 +133,9 @@ Plugin 'scrooloose/syntastic'
 	let g:syntastic_check_on_wq=1
 	let g:syntastic_auto_loc_list=1
 Plugin 'EasyMotion'
-Plugin 'ctrlp.vim'
-	let g:ctrlp_follow_symlinks=1
-	let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 "Plugin 'The-NERD-tree'
 "Plugin 'The-NERD-Commenter'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lilydjwg/colorizer'
 Plugin 'sheerun/vim-polyglot'
