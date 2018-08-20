@@ -158,6 +158,6 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " 开启语法高亮显示，终端支持256色。
 syntax on
 set t_Co=256
-" 设置色彩空间为暗色调，使用solarized配色方案
+" 设置色彩空间为暗色调，使用molokai配色方案
 set background=dark
 colorscheme molokai
