@@ -86,24 +86,6 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'tomasr/molokai'
 	let g:rehash256 = 1
 Plugin 'morhetz/gruvbox'
-Plugin 'taglist.vim'
-	map <F2> :silent! Tlist<CR>
-	let Tlist_Ctags_Cmd='ctags'
-	let Tlist_Exit_OnlyWindow=1
-"Plugin 'Valloric/YouCompleteMe'
-"	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-"	let g:ycm_complete_in_comments = 1
-"	let g:ycm_key_invoke_completion = '<C-Space>'
-"	nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
-"Plugin 'rdnetto/YCM-Generator'
-"Plugin 'Valloric/ListToggle'
-Plugin 'scrooloose/syntastic'
-	let g:syntastic_error_symbol='✗'
-	let g:syntastic_warning_symbol='⚠'
-	let g:syntastic_check_on_open=0
-	let g:syntastic_check_on_wq=1
-	let g:syntastic_auto_loc_list=1
-Plugin 'EasyMotion'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
 	set noshowmode
@@ -113,6 +95,43 @@ Plugin 'vim-airline/vim-airline'
 	let g:airline_detect_whitespace = 1
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#hunks#non_zero_only = 1
+Plugin 'taglist.vim'
+	map <F2> :silent! Tlist<CR>
+	let Tlist_Ctags_Cmd='ctags'
+	let Tlist_Exit_OnlyWindow=1
+Plugin 'SirVer/ultisnips'
+	let g:UltiSnipsExpandTrigger = "<c-j>"
+	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+	let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
+	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"	let g:ycm_show_diagnostics_ui = 0
+	let g:ycm_confirm_extra_conf = 0
+	let g:ycm_collect_identifier_from_comments_and_strings = 0
+	let g:ycm_complete_in_strings = 1
+	let g:ycm_complete_in_comments = 1
+	let g:ycm_semantic_triggers = {
+		\ 'c,cpp,python,java,lua,javascript': ['re!\w{2}']
+		\ }
+	let g:ycm_filetype_whitelist = {
+		\ "c":1, "cpp":1, "sh":1, "zsh":1
+		\ }
+Plugin 'tenfyzhong/CompleteParameter.vim'
+	inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+	let g:complete_parameter_use_ultisnips_mapping = 1
+	"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+	"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+	"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+	"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"Plugin 'Valloric/ListToggle'
+Plugin 'scrooloose/syntastic'
+	let g:syntastic_error_symbol='✗'
+	let g:syntastic_warning_symbol='⚠'
+	let g:syntastic_check_on_open=0
+	let g:syntastic_check_on_wq=1
+	let g:syntastic_auto_loc_list=1
+Plugin 'EasyMotion'
 Plugin 'ctrlp.vim'
 	let g:ctrlp_follow_symlinks=1
 	let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
@@ -122,11 +141,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lilydjwg/colorizer'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'SirVer/ultisnips'
-	let g:UltiSnipsExpandTrigger = "<c-j>"
-	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-	let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-Plugin 'honza/vim-snippets'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'tpope/vim-eunuch'
 Plugin 'guns/xterm-color-table.vim'
