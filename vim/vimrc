@@ -126,7 +126,7 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_check_on_open=0
 	let g:syntastic_check_on_wq=1
 	let g:syntastic_auto_loc_list=1
-Plug 'EasyMotion'
+Plug 'easymotion/vim-easymotion'
 "Plug 'The-NERD-tree'
 "Plug 'The-NERD-Commenter'
 "Plug 'terryma/vim-multiple-cursors'
