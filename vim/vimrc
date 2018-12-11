@@ -29,9 +29,9 @@ set history=500				" 记录的历史命令个数
 "set expandtab				" 键入tab时，自动用空格替换tab，空格长度等于tabstop的设置
 
 set backspace=indent,eol,start		" 退格键（backspace）默认工作vi模式下。该设置可以让退格键工作在大家熟悉的方式下。
-					" indent: 如果设置了:set indent等自动缩进，按退格键会删掉这个缩进。
-					" eol: 如果插入模式下在行开头，设置了eol后按下退格键会合并到上一行。
-					" start: 若不设置为start，则在回退时，只能回退删除自己新添加的字符，原来已经存在的字符无法回退删除。
+" indent: 如果设置了:set indent等自动缩进，按退格键会删掉这个缩进。
+" eol: 如果插入模式下在行开头，设置了eol后按下退格键会合并到上一行。
+" start: 若不设置为start，则在回退时，只能回退删除自己新添加的字符，原来已经存在的字符无法回退删除。
 set pastetoggle=<F3>			" 按下F3键可以切换粘贴插入模式[Insert (paste)]和普通插入模式。
 set viminfo='100,f1,<500
 
@@ -46,9 +46,9 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " 打开文件后，自动跳转到上一次退出时所在行
 autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
+			\ if line("'\"") > 1 && line("'\"") <= line("$") |
+			\   exe "normal! g'\"" |
+			\ endif
 
 " 启用VIM内置的man page reviewer，可以用命令`:Man XXX`查看手册页
 runtime! ftplugin/man.vim
@@ -62,12 +62,12 @@ runtime! ftplugin/man.vim
 let iCanHazPlug=1
 let plug_file=expand('~/.vim/plugs/vim-plug/autoload/plug.vim')
 if !filereadable(plug_file)
-    echo "Installing vim-plug..."
-    echo ""
-    silent !mkdir -p ~/.vim/plugs/vim-plug/autoload/
-    silent !curl -fLo ~/.vim/plugs/vim-plug/autoload/plug.vim --create-dirs
-	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    let iCanHazPlug=0
+	echo "Installing vim-plug..."
+	echo ""
+	silent !mkdir -p ~/.vim/plugs/vim-plug/autoload/
+	silent !curl -fLo ~/.vim/plugs/vim-plug/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	let iCanHazPlug=0
 endif
 
 " 设置包括vim-plug和初始化相关的runtime path
@@ -75,51 +75,55 @@ set rtp+=~/.vim/plugs/vim-plug
 call plug#begin('~/.vim/plugs')
 
 "Plug 'altercation/vim-colors-solarized'
-	"let g:solarized_termcolors=256
+"	let g:solarized_termcolors=256
 "Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'tomasr/molokai'
-	let g:rehash256 = 1
+Plug 'crusoexia/vim-monokai'
+	let g:monokai_term_italic = 1
 "Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-      set noshowmode
-      set laststatus=2
-      let g:airline_theme='powerlineish'
-      let g:airline_powerline_fonts = 1
-      let g:airline_detect_whitespace = 1
-      let g:airline#extensions#tabline#enabled = 1
-      let g:airline#extensions#hunks#non_zero_only = 1
+Plug 'vim-airline/vim-airline-themes'
+	"set noshowmode
+	set laststatus=2
+	let g:airline_theme='simple'
+	"let g:airline_powerline_fonts = 1
+	"let g:airline_detect_whitespace = 1
+	let g:airline#extensions#tabline#enabled = 1
+	"let g:airline#extensions#hunks#non_zero_only = 1
 Plug 'SirVer/ultisnips'
-      let g:UltiSnipsExpandTrigger = "<c-j>"
-      let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-      let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+	let g:UltiSnipsExpandTrigger = "<c-j>"
+	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+	let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe'
-      let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-      let g:ycm_show_diagnostics_ui = 0
-      let g:ycm_confirm_extra_conf = 0
-      let g:ycm_collect_identifier_from_comments_and_strings = 0
-      let g:ycm_complete_in_strings = 1
-      let g:ycm_complete_in_comments = 1
-      let g:ycm_semantic_triggers = {
-      	\ 'c,cpp,python,java,lua,javascript': ['re!\w{2}']
-      	\ }
-      let g:ycm_filetype_whitelist = {
-      	\ "c":1, "cpp":1, "sh":1, "zsh":1
-      	\ }
-Plug 'tenfyzhong/CompleteParameter.vim'
-	inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-	let g:complete_parameter_use_ultisnips_mapping = 1
-	"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-	"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-	"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-	"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+	let g:ycm_show_diagnostics_ui = 0
+	let g:ycm_confirm_extra_conf = 0
+	let g:ycm_collect_identifier_from_comments_and_strings = 0
+	let g:ycm_complete_in_strings = 1
+	let g:ycm_complete_in_comments = 1
+	set completeopt=menu,menuone
+	let g:ycm_semantic_triggers = {
+			\ 'c,cpp,python,java,go': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}']
+			\ }
+	let g:ycm_filetype_whitelist = {
+			\ "c":1, "cpp":1, "sh":1, "zsh":1
+			\ }
+	"hi Pmenu ctermfg=148 ctermbg=65 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
+	"hi PmenuSel ctermfg=65 ctermbg=235 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+"Plug 'tenfyzhong/CompleteParameter.vim'
+"	inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+"	let g:complete_parameter_use_ultisnips_mapping = 1
+"	smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"	imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"	smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"	imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 "Plug 'Valloric/ListToggle'
 Plug 'majutsushi/tagbar'
 	nmap <F2> :TagbarToggle<CR>
 "Plug 'ctrlp.vim'
-	"let g:ctrlp_follow_symlinks=1
-	"let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+"	let g:ctrlp_follow_symlinks=1
+"	let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 Plug 'scrooloose/syntastic'
 	let g:syntastic_error_symbol='✗'
 	let g:syntastic_warning_symbol='⚠'
@@ -148,9 +152,9 @@ Plug 'plasticboy/vim-markdown'
 
 " 安装了vim-plug后，首次自动安装插件
 if iCanHazPlug == 0
-    echo "Installing plugins, please ignore key map error messages"
-    echo ""
-    :PlugInstall
+	echo "Installing plugins, please ignore key map error messages"
+	echo ""
+	:PlugInstall
 endif
 
 " 你的所有插件需要在下面这行之前
@@ -162,7 +166,14 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " 开启语法高亮显示，终端支持256色。
 syntax on
-set t_Co=256
+if &term =~ "256color"
+	set t_Co=256
+endif
 " 设置色彩空间为暗色调，使用molokai配色方案
 set background=dark
-colorscheme molokai
+colorscheme monokai
+
+" 设置当前行高亮
+set cursorline
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine cterm=bold,underline
