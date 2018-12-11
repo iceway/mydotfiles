@@ -3,43 +3,102 @@
 " {vim:set shiftwidth=4 tabstop=4 softtabstop=4 expandtab:} "
 
 """ ### VIM 特性配置 {{{
-set nocompatible			" 不使用vi兼容模式
 
-set ruler				" 显示状态栏光标标尺
-set cursorline				" 突出显示当前行
-set number				" 显示行号
-"set relativenumber			" 显示相对（当前光标所在行）行号而不是绝对行号
-set hlsearch				" 高亮搜索结果
-set incsearch				" 输入搜索内容时就同步显示搜索结果
-"set ignorecase				" 搜索时大小写不敏感
-"set nowrap				" 长度超过窗口宽度不要换行显示
-"set list				" 让VIM显示空格、tab、换行等不可见字符
-"set listchars=nbsp:¬,trail:·,tab:»	" 设置VIM把空格、换行、tab显示为什么字符
-set scrolloff=3				" 光标移动到顶部和底部时自动保持3行距离
-set showmatch				" 显示自动匹配到的对应括号
-set showmode				" 让VIM在窗口最低下显示当前模式，如--INSERT--等
-set showcmd				" 在命令模式下输入命令时，同步显示已经键入的命令内容
-set nobackup				" 保存文件时，不要创建备份文件
-set textwidth=0				" 一行内输入字符达到多少时自动换行，0表示不限制
-set history=500				" 记录的历史命令个数
+" 不使用vi兼容模式
+set nocompatible
 
-"set shiftwidth=4			" 设定VIM的自动缩进，以及>和<命令时移动的空白长度
-"set softtabstop=4			" 按下tab时，插入的是空格和tab制表符的混合，具体方式参见:help softtabstop
-"set tabstop=4				" 设定tab长度为4字节
-"set expandtab				" 键入tab时，自动用空格替换tab，空格长度等于tabstop的设置
+" 显示状态栏光标标尺
+set ruler
 
-set backspace=indent,eol,start		" 退格键（backspace）默认工作vi模式下。该设置可以让退格键工作在大家熟悉的方式下。
+" 突出显示当前行（高亮当前行）
+set cursorline
+
+" 显示行号
+set number
+
+" 显示相对（当前光标所在行）行号而不是绝对行号
+"set relativenumber
+
+" 高亮搜索结果
+set hlsearch
+
+" 输入搜索内容时就同步显示搜索结果
+set incsearch
+
+" 搜索时大小写不敏感
+"set ignorecase
+
+" 长度超过窗口宽度不要换行显示
+"set nowrap
+
+" 让VIM显示空格、tab、换行等不可见字符
+"set list
+
+" 设置VIM把空格、换行、tab显示为什么字符
+"set listchars=nbsp:¬,trail:·,tab:»
+
+" 光标移动到顶部和底部时自动保持3行距离
+set scrolloff=3
+
+" 显示自动匹配到的对应括号
+set showmatch
+
+" 让VIM在窗口最低下显示当前模式，如--INSERT--等
+set showmode
+
+" 在命令模式下输入命令时，同步显示已经键入的命令内容
+set showcmd
+
+" 保存文件时，不要自动创建备份文件
+set nobackup
+
+" 一行内输入字符达到多少时自动换行，0表示不限制
+set textwidth=0
+
+" 记录的历史命令个数
+set history=500
+
+" 设定VIM的自动缩进，以及>和<命令时移动的空白长度
+"set shiftwidth=4
+
+" 按下tab时，插入的是空格和tab制表符的混合，具体方式参见:help softtabstop
+"set softtabstop=4
+
+" 设定tab长度为4字节
+"set tabstop=4
+
+" 键入tab时，自动用空格替换tab，空格长度等于tabstop的设置
+"set expandtab
+
+" 退格键（backspace）默认工作vi模式下。该设置可以让退格键工作在大家熟悉的方式下。
 " indent: 如果设置了:set indent等自动缩进，按退格键会删掉这个缩进。
 " eol: 如果插入模式下在行开头，设置了eol后按下退格键会合并到上一行。
 " start: 若不设置为start，则在回退时，只能回退删除自己新添加的字符，原来已经存在的字符无法回退删除。
-set pastetoggle=<F3>			" 按下F3键可以切换粘贴插入模式[Insert (paste)]和普通插入模式。
+set backspace=indent,eol,start
+
+" 按下F3键可以切换粘贴插入模式[Insert (paste)]和普通插入模式。
+set pastetoggle=<F3>
+
 set viminfo='100,f1,<500
+
+" 设置反斜线作为<leader>键
+let mapleader = "\\"
 
 "map <C-H> <C-W>h
 "map <C-J> <C-W>j
 "map <C-K> <C-W>k
 "map <C-L> <C-W>l
-cmap w!! w !sudo tee >/dev/null %
+
+" 映射命令：输入`<leader>W`命令时以sudo权限保存文件。
+" 有时用普通用户身份打开一个root权限才可以写入的文件（入etc下的某些配置文件），修改了内容后才发现不能保存。
+" 这种情况下用这个映射命令可以用root用户身份保存。
+nnoremap <leader>W :w !sudo tee >/dev/null %
+
+" 映射命令：打开一个新的纵向分屏编辑vimrc配置文件。
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" 映射命令：重新加载vimrc配置文件。
+nnoremap <leader>sv :source $MYVIMRC
 
 " 不重启VIM，让配置文件保存后立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -59,6 +118,7 @@ runtime! ftplugin/man.vim
 " ############################################################################ "
 " {{{ plugins
 
+" 启动vim时判断vim-plug插件管理器是否已安装，如没有则通过curl下载vim-plug。
 let iCanHazPlug=1
 let plug_file=expand('~/.vim/plugs/vim-plug/autoload/plug.vim')
 if !filereadable(plug_file)
@@ -74,12 +134,15 @@ endif
 set rtp+=~/.vim/plugs/vim-plug
 call plug#begin('~/.vim/plugs')
 
+" 配色方案
 "Plug 'altercation/vim-colors-solarized'
 "	let g:solarized_termcolors=256
 "Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'crusoexia/vim-monokai'
 	let g:monokai_term_italic = 1
 "Plug 'morhetz/gruvbox'
+
+" 状态栏样式和配色
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 	"set noshowmode
@@ -89,11 +152,15 @@ Plug 'vim-airline/vim-airline-themes'
 	"let g:airline_detect_whitespace = 1
 	let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#hunks#non_zero_only = 1
+
+" 代码块补全
 Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = "<c-j>"
 	let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 	let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 Plug 'honza/vim-snippets'
+
+" 基于语义的代码自动补全
 Plug 'Valloric/YouCompleteMe'
 	let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 	let g:ycm_show_diagnostics_ui = 0
@@ -111,6 +178,8 @@ Plug 'Valloric/YouCompleteMe'
 			\ }
 	"hi Pmenu ctermfg=148 ctermbg=65 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 	"hi PmenuSel ctermfg=65 ctermbg=235 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+
+" YCM自动补全函数时，同时插入默认的参数列表
 "Plug 'tenfyzhong/CompleteParameter.vim'
 "	inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 "	let g:complete_parameter_use_ultisnips_mapping = 1
@@ -118,34 +187,58 @@ Plug 'Valloric/YouCompleteMe'
 "	imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 "	smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 "	imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+
 "Plug 'Valloric/ListToggle'
+
 Plug 'majutsushi/tagbar'
 	nmap <F2> :TagbarToggle<CR>
+
 "Plug 'ctrlp.vim'
 "	let g:ctrlp_follow_symlinks=1
 "	let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+
+" 各文件类型的语法检测
 Plug 'scrooloose/syntastic'
 	let g:syntastic_error_symbol='✗'
 	let g:syntastic_warning_symbol='⚠'
 	let g:syntastic_check_on_open=0
 	let g:syntastic_check_on_wq=1
 	let g:syntastic_auto_loc_list=1
+
+" 快速移动
 Plug 'easymotion/vim-easymotion'
+
 "Plug 'The-NERD-tree'
 "Plug 'The-NERD-Commenter'
+
+" 多光标同时编辑
 "Plug 'terryma/vim-multiple-cursors'
+
+" git插件
 Plug 'tpope/vim-fugitive'
+
+" 颜色代码值（#XXXXXX）直接显示成对应的颜色
 Plug 'lilydjwg/colorizer'
+
 Plug 'sheerun/vim-polyglot'
+
 "Plug 'scrooloose/nerdtree'
+
 "Plug 'tpope/vim-eunuch'
+
 Plug 'guns/xterm-color-table.vim'
+
+" 显示不同级别的缩进自动
 Plug 'Yggdroot/indentLine'
 	let g:indentLine_char='┆'
 	let g:indentLine_enabled = 1
 	let g:indentLine_color_term = 239
+
 Plug 'tell-k/vim-autopep8'
+
 Plug 'godlygeek/tabular'
+
+" markdown插件
 Plug 'plasticboy/vim-markdown'
 	let g:vim_markdown_folding_disabled = 1
 	let g:vim_markdown_conceal = 0
@@ -157,7 +250,7 @@ if iCanHazPlug == 0
 	:PlugInstall
 endif
 
-" 你的所有插件需要在下面这行之前
+" 所有插件需要在下面这行之前
 call plug#end()
 " }}} End of Vundle Setting
 
@@ -169,11 +262,11 @@ syntax on
 if &term =~ "256color"
 	set t_Co=256
 endif
+
 " 设置色彩空间为暗色调，使用molokai配色方案
 set background=dark
 colorscheme monokai
 
 " 设置当前行高亮
 set cursorline
-"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorLine cterm=bold,underline
