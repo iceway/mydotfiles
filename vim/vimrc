@@ -109,6 +109,12 @@ autocmd BufReadPost *
 			\   exe "normal! g'\"" |
 			\ endif
 
+" 设置python类型文件的缩进和对其
+autocmd FileType python setlocal et sta sw=4 sts=4
+
+" 打开后缀名为md的文件，将文件类型设置为markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " 启用VIM内置的man page reviewer，可以用命令`:Man XXX`查看手册页
 runtime! ftplugin/man.vim
 " ### }}} VIM 特性配置结束
@@ -177,8 +183,6 @@ Plug 'Valloric/YouCompleteMe'
 	let g:ycm_filetype_whitelist = {
 			\ "c":1, "cpp":1, "sh":1, "zsh":1
 			\ }
-	"hi Pmenu ctermfg=148 ctermbg=65 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
-	"hi PmenuSel ctermfg=65 ctermbg=235 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
 
 " YCM自动补全函数时，同时插入默认的参数列表
 "Plug 'tenfyzhong/CompleteParameter.vim'
@@ -255,9 +259,6 @@ endif
 call plug#end()
 " }}} End of Vundle Setting
 
-autocmd FileType python setlocal et sta sw=4 sts=4
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 " 开启语法高亮显示，终端支持256色。
 syntax on
 if &term =~ "256color"
@@ -265,9 +266,13 @@ if &term =~ "256color"
 endif
 
 " 设置色彩空间为暗色调，使用molokai配色方案
-set background=dark
 colorscheme monokai
+set background=dark
 
 " 设置当前行高亮
 set cursorline
 hi CursorLine cterm=bold,underline
+
+" 设置YCM等插件自动补全时弹出框的色彩
+"hi Pmenu cterm=NONE
+"hi PmenuSel ctermfg=black ctermbg=blue cterm=bold
