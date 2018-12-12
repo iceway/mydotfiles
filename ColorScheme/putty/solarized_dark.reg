@@ -1,6 +1,23 @@
 Windows Registry Editor Version 5.00
 
+; ---------------------------------------------------------
+; Maintainer: Iceway Zhang
+; Freture:
+; 	- solarized dark color scheme to putty settings.
+; 	- support 256color by default.
+; 	- support Bold font by default.
+; 	- use Consolas as default font.
+; Refer: https://github.com/jacktrocinski/pretty-putty
+; ---------------------------------------------------------
+
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\Solarized%20Dark]
+
+; Colors option
+"ANSIColour"=dword:00000001
+"Xterm256Colour"=dword:00000001
+"BoldAsColour"=dword:00000002
+
+; Colors definition
 "Colour0"="131,148,150"
 "Colour1"="147,161,161"
 "Colour2"="0,43,54"
@@ -23,3 +40,19 @@ Windows Registry Editor Version 5.00
 "Colour19"="147,161,161"
 "Colour20"="238,232,213"
 "Colour21"="253,246,227"
+
+; 256 color Term in terminal
+"TerminalType"="xterm-256color"
+
+; UTF-8
+"LineCodePage"="UTF-8"
+
+; Font
+"Font"="Consolas"
+"FontIsBold"=dword:00000000
+"FontCharSet"=dword:00000000
+"FontHeight"=dword:0000000c
+"FontQuality"=dword:00000003
+
+; Scrollback buffer lines
+"ScrollbackLines"=dword:00004000
