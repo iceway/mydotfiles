@@ -29,9 +29,11 @@ git克隆本仓库，然后进入仓库工作数目录下，执行以下命令:
 
 > 该配置文件在vim 7.4版本上测试过，某些用到的插件在7.4以下版本上可能无法正常使用。
 
-本配置文件使用[VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)作为插件管理器。
+本配置文件使用[junegunn/vim-plug](https://github.com/junegunn/vim-plug)作为插件管理器。
 
-运行vim，会自动检测Vundle.vim是否已安装，如果没有则安装插件管理器，然后安装所有指定的插件。如果已经安装过Vundle.vim，运行vim后，执行命令`:PluginInstall`安装所有插件，`:PluginUpdate`更新所有插件。
+运行vim，会自动检测vim-plug是否已安装，如果没有则安装插件管理器，然后安装所有指定的插件。如果已经安装过，运行vim后，执行命令`:PlugInstall`安装所有插件，`:PlugUpdate`更新所有插件。
+
+- 因为YCM插件需要编译，如果安装或更新后YCM出问题，需要手动编译YCM。
 
 
 ### gitconfig
@@ -42,3 +44,10 @@ git克隆本仓库，然后进入仓库工作数目录下，执行以下命令:
 ## 参考
 
 [1] [http://dotshare.it/](http://dotshare.it/)
+
+
+## 关于终端软件配色
+
+- putty: https://github.com/AlexAkulov/putty-color-themes/blob/master/images/readme.md
+- gnome terminal: https://mayccoll.github.io/Gogh/
+- konsole terminal: https://store.kde.org/browse/cat/462/
