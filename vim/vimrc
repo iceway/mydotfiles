@@ -84,10 +84,11 @@ set viminfo='100,f1,<500
 " 设置反斜线作为<leader>键
 let mapleader = "\\"
 
-"map <C-H> <C-W>h
-"map <C-J> <C-W>j
-"map <C-K> <C-W>k
-"map <C-L> <C-W>l
+" 映射命令：在插入模式下按下Ctrl加hjkl几个键，移动光标。
+"inoremap <C-H> <Left>
+"inoremap <C-J> <Down>
+"inoremap <C-K> <Up>
+"inoremap <C-L> <Right>
 
 " 映射命令：输入`<leader>W`命令时以sudo权限保存文件。
 " 有时用普通用户身份打开一个root权限才可以写入的文件（入etc下的某些配置文件），修改了内容后才发现不能保存。
@@ -99,6 +100,12 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " 映射命令：重新加载vimrc配置文件。
 nnoremap <leader>sv :source $MYVIMRC
+
+" 映射命令：切换到下一个buffer。
+nnoremap <C-P> :bp<CR>
+
+" 映射命令，切换到上一个buffer。
+nnoremap <C-N> :bn<CR>
 
 " 不重启VIM，让配置文件保存后立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
