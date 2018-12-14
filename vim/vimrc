@@ -107,6 +107,12 @@ nnoremap <C-P> :bp<CR>
 " 映射命令，切换到上一个buffer。
 nnoremap <C-N> :bn<CR>
 
+" 映射命令，使用ag命令在当前目录搜索，需要系统中安装ag命令。
+nnoremap <C-T> :Ag!<Space>"<cword>"<CR>
+
+" 映射命令，F2开启tagbar，需要系统中安装ctags命令。
+nnoremap <F2> :TagbarToggle<CR>
+
 " 不重启VIM，让配置文件保存后立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -202,8 +208,9 @@ Plug 'Valloric/YouCompleteMe'
 
 "Plug 'Valloric/ListToggle'
 
+Plug 'rking/ag.vim'
+
 Plug 'majutsushi/tagbar'
-	nmap <F2> :TagbarToggle<CR>
 
 "Plug 'ctrlp.vim'
 "	let g:ctrlp_follow_symlinks=1
