@@ -161,9 +161,9 @@ call plug#begin('~/.vim/plugs')
 "	let g:solarized_termcolors=256
 "Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'crusoexia/vim-monokai'
-	let g:monokai_term_italic = 1
+"	let g:monokai_term_italic = 1
 Plug 'morhetz/gruvbox'
-	let g:gruvbox_italic = 1
+	"let g:gruvbox_italic = 1
 
 " 状态栏样式和配色
 Plug 'vim-airline/vim-airline'
@@ -283,7 +283,7 @@ if &term =~ "256color"
 endif
 
 " 设置色彩空间为暗色调，使用molokai配色方案
-colorscheme monokai
+colorscheme gruvbox
 set background=dark
 
 " 设置当前行高亮
