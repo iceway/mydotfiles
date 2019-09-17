@@ -264,6 +264,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 	let g:vim_markdown_folding_disabled = 1
 	let g:vim_markdown_conceal = 0
+	let g:vim_markdown_conceal_code_blocks = 0
 
 " 安装了vim-plug后，首次自动安装插件
 if iCanHazPlug == 0
@@ -278,7 +279,14 @@ call plug#end()
 
 " 开启语法高亮显示，终端支持256色。
 syntax on
-if &term =~ "256color"
+
+" 启用true color（vim >= 7.4.1770)，或者设置256colors
+if has("termguicolors")
+	set t_8f=[38;2;%lu;%lu;%lum
+	set t_8b=[48;2;%lu;%lu;%lum
+
+	set termguicolors
+elseif &term =~ "256color"
 	set t_Co=256
 endif
 
